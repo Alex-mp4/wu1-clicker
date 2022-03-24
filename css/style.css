@@ -93,6 +93,7 @@ body {
     color: #121212;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 /* För att göra footern sticky så har vi flex på bodyn och då räcker det med 
  * margin-top auto här.
  */
@@ -171,6 +172,10 @@ footer {
     width: 8rem;
     height: 8rem;
     font-size: 2rem;
+}
+
+#click:hover {
+    background-image: url(../img/the_tunnel.gif);
 }
 
 /* #msgbox är elementet som visar sidans toasts, popupmeddelanden
