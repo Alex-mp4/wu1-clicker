@@ -91,7 +91,11 @@ body {
     flex-direction: column;
     background-color: #f8f8f8;
     color: #121212;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: rgb(13, 190, 22);
+    background-image: url(../img/catacomb.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* För att göra footern sticky så har vi flex på bodyn och då räcker det med 
@@ -198,16 +202,18 @@ footer {
  * meddelanden. Javascript används för att lägga till stilen på meddelandet
  */
 .warning {
-    background-color: palevioletred;
+    color: #dddddd;
+    background-color: rgb(124, 0, 0);
 }
 
 .success {
-    background-color: mediumspringgreen;
+    color: #dddddd;
+    background-color: rgb(16, 114, 3);
 }
 
 .achievement {
-    color: #121212;
-    background-color: rebeccapurple;
+    color: #dddddd;
+    background-color: rgb(23, 34, 133);
 }
 
 /* dessa kort används för spelets uppgraderingar 

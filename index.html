@@ -6,31 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     <title>Clicker exempel</title>
 </head>
 
 <body>
     <main class="container">
         <header>
-            <div class="img-container">
-                <img src="img/frog.png" alt="Fossil" style="width: 60%;">
-            </div>
             <h1>Grodslickaren</h1>
-            <p>Du går ut i katakomberna i hopp om skatter och guld.</p>
-            <p>Istället finner du endast en håla fylld med grodor.</p>
-            <p>Hur många slick krävs det för att stiga upp till ett högre tillvaroplan?</p>
+                <div class="img-container">
+                    <img src="img/pileoffrogs.png" alt="Fossil" style="width: 60%;">
+                </div>
         </header>
+            <script>
+                alert("Du går ut i katakomberna i hopp om skatter och guld.");
+                alert("Istället finner du endast en håla fylld med grodor.");
+                alert("Hur många slick krävs det för att stiga upp till ett högre tillvaroplan?");
+            </script>
         <section class="game">
             <div class="game-hud">
                 <ul class="game-currency">
                     <li class="item">
-                        <h1>Grodslem: <span id="money"></span></h1>
-                    </li>
-                    <li class="item">
-                        <h1>Saliv: <span id="mps"></span></h1>
+                        <h1 style="font-family: 'Creepster', cursive;">Grodslem: <span style="font-family: 'M PLUS Rounded 1c', sans-serif" id="money"></span></h1>
                     </li>
                     <li class="item">
                         <h1>Tungor: <span id="mpc"></span></h1>
+                    </li>
+                    <li class="item">
+                        <h1>Saliv: <span style="font-family: 'M PLUS Rounded 1c', sans-serif;" id="mps"></span></h1>
+                    </li>
+                    <li class="item">
+                        <h1>Antal mutationer: <span  style="font-family: 'M PLUS Rounded 1c', sans-serif;"id="upgrades"></span></h1>
                     </li>
                 </ul>
                 <div class="game-button">

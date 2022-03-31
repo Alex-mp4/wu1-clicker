@@ -13,6 +13,7 @@ const mpsTracker = document.querySelector('#mps'); // money per second
 const mpcTracker = document.querySelector('#mpc'); // money per click
 const upgradeList = document.querySelector('#upgradelist');
 const msgbox = document.querySelector('#msgbox');
+const upgradesTracker = document.querySelector('#upgrades');
 
 /* Följande variabler använder vi för att hålla reda på hur mycket pengar som
  * spelaren, har och tjänar.
@@ -24,6 +25,7 @@ const msgbox = document.querySelector('#msgbox');
 let money = 0;
 let moneyPerClick = 1;
 let moneyPerSecond = 0;
+let acquiredUpgrades = 0;
 let last = 0;
 
 let achievementTest = false;
@@ -61,6 +63,7 @@ function step(timestamp) {
     moneyTracker.textContent = Math.round(money);
     mpsTracker.textContent = moneyPerSecond;
     mpcTracker.textContent = moneyPerClick;
+    upgradesTracker.textContent = acquiredUpgrades;
 
     if (timestamp >= last + 1000) {
         money += moneyPerSecond;
@@ -71,9 +74,14 @@ function step(timestamp) {
     // achievements. Titta dock på upgrades arrayen och gör något rimligare om du
     // vill ha achievements.
     // på samma sätt kan du även dölja uppgraderingar som inte kan köpas
-    if (moneyPerClick == 10 && !achievementTest) {
+    if (acquiredUpgrades == 10 && !achievementTest) {
         achievementTest = true;
-        message('Du har hittat en FOSSIL!', 'achievement');
+        message('Du har slickat lite för mycket!', 'achievement');
+    }
+
+    if (money == 1 && !achievementTest) {
+        achievementTest = true;
+        message('Ditt första slick!', 'achievement');
     }
 
     window.requestAnimationFrame(step);
@@ -109,21 +117,61 @@ upgrades = [
     {
         name: 'En extra tunga',
         cost: 10,
-        amount: 1,
+        clicks: 1,
+    },
+    {
+        name: 'Eget grodsekret',
+        cost: 10,
+        amount: 2,
     },
     {
         name: 'Siamesisk kropp',
         cost: 100,
-        amount: 10,
+        amount: 12,
     },
     {
         name: 'Sjätte sinne',
         cost: 1000,
-        amount: 100,
+        amount: 200,
+    },
+    {
+        name: 'Grodkänsla',
+        cost: 5000,
+        amount: 600,
+    },
+    {
+        name: 'Psykedelisk syn',
+        cost: 20000,
+        amount: 3000,
+    },
+    {
+        name: 'Grodtunga',
+        cost: 120000,
+        amount: 10000,
+    },
+    {
+        name: 'Oändlig hunger',
+        cost: 3000000,
+        amount: 30000,
+    },
+    {
+        name: 'Oändlig hunger',
+        cost: 15000000,
+        amount: 1200000,
+    },
+    {
+        name: 'Groda',
+        cost: 100000000,
+        amount: 5000000,
+    },
+    {
+        name: 'Du ser ljuset',
+        cost: 3000000000,
+        amount: 100000000,
     },
     {
         name: 'Ascension',
-        cost: 10000000000000,
+        cost: 10000000000,
         amount: Infinity,
     },
 ];
@@ -153,19 +201,25 @@ function createCard(upgrade) {
     header.classList.add('title');
     const cost = document.createElement('p');
 
-    header.textContent = `${upgrade.name}, +${upgrade.amount} per sekund.`;
+    if (upgrade.amount) {
+        header.textContent = `${upgrade.name}, +${upgrade.amount} per sekund.`;
+    } else {
+        header.textContent = `${upgrade.name}, +${upgrade.clicks} per klick.`;
+    }
     cost.textContent = `Uppnå för ${upgrade.cost} grodslem.`;
 
     card.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {
-            moneyPerClick++;
+            acquiredUpgrades++;
             money -= upgrade.cost;
-            upgrade.cost *= 1.5;
+            upgrade.cost *= 1.3;
+            upgrade.cost = Math.round(upgrade.cost);
             cost.textContent = 'Uppnå för ' + upgrade.cost + ' grodslem';
-            moneyPerSecond += upgrade.amount;
-            message('Grattis du har lockat till dig fler besökare!', 'success');
+            moneyPerSecond += upgrade.amount ? upgrade.amount : 0;
+            moneyPerClick += upgrade.clicks ? upgrade.clicks : 0;
+            message('Grattis, din kropp har förevigt ändrats!', 'success');
         } else {
-            message('Du har inte råd.', 'warning');
+            message('Du har inte slickat nog.', 'warning');
         }
     });
 
