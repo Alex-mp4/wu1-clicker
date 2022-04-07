@@ -155,7 +155,7 @@ upgrades = [
         amount: 30000,
     },
     {
-        name: 'Oändlig hunger',
+        name: 'Evolution',
         cost: 15000000,
         amount: 1200000,
     },
@@ -173,6 +173,11 @@ upgrades = [
         name: 'Ascension',
         cost: 10000000000,
         amount: Infinity,
+    },
+    {
+        name: 'En ny värld',
+        cost: Infinity,
+        testt: 10,
     },
 ];
 
@@ -210,6 +215,39 @@ function createCard(upgrade) {
 
     card.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {
+            if (upgrade.testt == 10) {
+                money = 1;
+                moneyPerClick = 1;
+                moneyPerSecond = 0;
+                
+                y = document.querySelector("#upgradelist");
+                
+                upgrades[0].cost = 10;
+                upgrades[1].cost = 10;
+                upgrades[2].cost = 100;
+                upgrades[3].cost = 1000;
+                upgrades[4].cost = 5000;
+                upgrades[5].cost = 20000;
+                upgrades[6].cost = 120000;
+                upgrades[7].cost = 3000000;
+                upgrades[8].cost = 15000000;
+                upgrades[9].cost = 100000000;
+                upgrades[10].cost = 3000000000;
+                upgrades[11].cost = 10000000000;
+                upgrades[12].cost = Infinity;
+
+                for (let i = 0; i < upgrades.length; i++) {
+                    upgrades[i].cost *= 0.6;
+                }
+                upgrade.cost = Math.round(upgrade.cost);
+
+                y.innerHTML = "";
+
+                upgrades.forEach((upgrade) => {
+                    upgradeList.appendChild(createCard(upgrade));
+                });
+            }
+            else {
             acquiredUpgrades++;
             money -= upgrade.cost;
             upgrade.cost *= 1.3;
@@ -218,7 +256,9 @@ function createCard(upgrade) {
             moneyPerSecond += upgrade.amount ? upgrade.amount : 0;
             moneyPerClick += upgrade.clicks ? upgrade.clicks : 0;
             message('Grattis, din kropp har förevigt ändrats!', 'success');
-        } else {
+        }
+            }
+        else {
             message('Du har inte slickat nog.', 'warning');
         }
     });

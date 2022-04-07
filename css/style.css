@@ -86,14 +86,49 @@ select {
  * Bodyn får display: flex för att möjligöra en sticky footer längst ned på sidan
  * Genom att sätta en font på body elementet så används fonten på hela sidan.
  */
+
+ 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #4d3c36;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #1BD1A3;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #17ad88;
+  }
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: #332824;
+    width: 100%;
+}
+
+header h1 {
+    margin: auto;
+    text-align: center;
+}
+
 body {
     display: flex;
     flex-direction: column;
     background-color: #f8f8f8;
     color: #121212;
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    color: rgb(13, 190, 22);
+    color: rgb(27, 209, 163);
     background-image: url(../img/catacomb.png);
+    background-color: #332824;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -133,12 +168,22 @@ footer {
         max-width: 54rem;
     }
 }
+
+.list {
+    height: 50%;
+    width: 50%;
+    height: 25rem;
+    overflow: scroll;
+    display: flex;
+
+}
+
 /* Här finns ett par regler för att responsivt anpassa designen på sidan. 
  * Vi gömmer headern på mobil för att spara plats och vänder på spelet så att 
  * knappen blir överst på sidan.
  */
 @media (max-width: 36rem) {
-   header {
+   .res-hide {
        display: none;
    }
    .game-hud {
@@ -146,9 +191,14 @@ footer {
    }
    .game-button {
        width: 100%;
-       display: flex;
        justify-content: center;
    }
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    margin: auto;
 }
 /* centrera bilden */
 .img-container {
@@ -158,12 +208,12 @@ footer {
 }
 .game {
     margin-top: 2rem;
+    display: flex;
 }
 
 /* flex och space between ordnar layouten för speldata och knappen på desktop */
 .game-hud {
-    display: flex;
-    justify-content: space-between;
+    margin: auto;
 }
 
 .game-currency {
@@ -173,13 +223,16 @@ footer {
 
 /* för spelelementet används #id som selektor för att skapa css reglerna */
 #click {
-    width: 8rem;
-    height: 8rem;
+    width: 14rem;
+    height: 14rem;
     font-size: 2rem;
+    background: none;
+    border-style: none;
 }
 
 #click:hover {
     background-image: url(../img/the_tunnel.gif);
+    box-shadow: 0 0 8px 8px transparent inset;
 }
 
 /* #msgbox är elementet som visar sidans toasts, popupmeddelanden
@@ -224,13 +277,14 @@ footer {
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    border: 1px solid #646464;
+    border: 1px solid #1e1815;
     margin: 0.5rem 0;
     padding: 1rem 0.5rem;
+    background-color: #332824;
 }
 
 .card:hover {
-    background-color: #dfdfdf;
+    background-color: #433631;
 }
 /* klassen används på kortets titel, font-weight: 600 gör fonten fetare, en normal
  * font vikt är oftast 400

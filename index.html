@@ -13,52 +13,50 @@
 </head>
 
 <body>
+    <header>
+        <h1>Grodslickaren</h1>
+    </header>
     <main class="container">
-        <header>
-            <h1>Grodslickaren</h1>
-                <div class="img-container">
-                    <img src="img/pileoffrogs.png" alt="Fossil" style="width: 60%;">
-                </div>
-        </header>
+        <div class="img-container">
+            <img src="img/pileoffrogs.png" alt="Fossil" style="width: 60%;">
+        </div>
             <script>
                 alert("Du går ut i katakomberna i hopp om skatter och guld.");
                 alert("Istället finner du endast en håla fylld med grodor.");
                 alert("Hur många slick krävs det för att stiga upp till ett högre tillvaroplan?");
             </script>
+            <h1>Mutationer</h1>
         <section class="game">
-            <div class="game-hud">
-                <ul class="game-currency">
-                    <li class="item">
-                        <h1 style="font-family: 'Creepster', cursive;">Grodslem: <span style="font-family: 'M PLUS Rounded 1c', sans-serif" id="money"></span></h1>
-                    </li>
-                    <li class="item">
-                        <h1>Tungor: <span id="mpc"></span></h1>
-                    </li>
-                    <li class="item">
-                        <h1>Saliv: <span style="font-family: 'M PLUS Rounded 1c', sans-serif;" id="mps"></span></h1>
-                    </li>
-                    <li class="item">
-                        <h1>Antal mutationer: <span  style="font-family: 'M PLUS Rounded 1c', sans-serif;"id="upgrades"></span></h1>
-                    </li>
-                </ul>
-                <div class="game-button">
-                    <button id="click"><img src="img/frog.png"></button>
-                </div>
-            </div>
-            <div class="w-100">
-                <h1>Mutationer</h1>
+            <div class="list">
                 <div id="upgradelist"></div>
             </div>
+            <div class="game-hud">
+                <div class="item">
+                    <h1 style="font-family: 'Creepster', cursive; font-size: 2.3rem;">Grodslem:</h1>
+                    <h1><span style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 2.3rem ; padding-left: 10px;" id="money"></span></h1>
+                </div>
+                <div class="game-button">
+                    <button id="click"><img src="img/frog.png" alt="frog"></button>
+                </div>
+                <ul class="game-currency">
+                    <li class="item">
+                        <h1>Tungor:</h1>
+                        <h1 style="padding-left: 5px;"><span id="mpc"></span></h1>
+                    </li>
+                    <li class="item">
+                        <h1>Saliv:</h1>
+                        <h1 style="padding-left: 5px;"><span style="font-family: 'M PLUS Rounded 1c', sans-serif;" id="mps"></span></h1>
+                    </li>
+                    <li class="item">
+                        <h1>Antal mutationer:</h1>
+                        <h1 style="padding-left: 5px;"><span style="font-family: 'M PLUS Rounded 1c', sans-serif;"id="upgrades"></span></h1>
+                    </li>
+                </ul>
             </div>
         </section>
     </main>
     <div id="msgbox"></div>
     <footer class="container">
-        <p>Hjälp till att fixa fel och lägga till funktioner, 
-            <a href="https://github.com/jensnti/clicker/issues">issues</a>
-            eller
-            <a href="https://github.com/jensnti/clicker/pulls">pull requests</a>.
-        </p>
     </footer>
     <script src="js/clicker.js"></script>
 </body>
