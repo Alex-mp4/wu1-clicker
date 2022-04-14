@@ -183,15 +183,16 @@ footer {
  * knappen blir överst på sidan.
  */
 @media (max-width: 36rem) {
-   .res-hide {
-       display: none;
-   }
    .game-hud {
         flex-direction: column-reverse;
    }
    .game-button {
        width: 100%;
        justify-content: center;
+   }
+   .list {
+       width: 100%;
+       min-width: 100%;
    }
 }
 
